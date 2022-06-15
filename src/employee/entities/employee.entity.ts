@@ -4,9 +4,9 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @ObjectType()
 @Entity()
 export class Employee {
-    @Field(type => Int)
+    @Field()
     @PrimaryGeneratedColumn('uuid')
-    id: number;
+    id: string;
     
     @Field()
     @Column()

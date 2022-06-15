@@ -9,7 +9,7 @@ type Pet {
 }
 
 type Employee {
-  id: Int!
+  id: String!
   firstName: String!
   lastname: String!
   designation: String!
@@ -19,4 +19,15 @@ type Employee {
 type Query {
   pets: [Pet!]!
   getAllEmployees: [Employee!]!
+}
+
+type Mutation {
+  createEmployee(employeeInput: CreateEmployeeDTO!): Employee!
+}
+
+input CreateEmployeeDTO {
+  firstName: String!
+  lastname: String!
+  designation: String!
+  city: String
 }
