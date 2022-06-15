@@ -8,6 +8,26 @@ type Pet {
   type: String
 }
 
+type Employee {
+  id: String!
+  firstName: String!
+  lastname: String!
+  designation: String!
+  city: String
+}
+
 type Query {
   pets: [Pet!]!
+  getAllEmployees: [Employee!]!
+}
+
+type Mutation {
+  createEmployee(employeeInput: CreateEmployeeDTO!): Employee!
+}
+
+input CreateEmployeeDTO {
+  firstName: String!
+  lastname: String!
+  designation: String!
+  city: String
 }
