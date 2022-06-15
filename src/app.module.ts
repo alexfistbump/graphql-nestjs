@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PetsModule } from './pets/pets.module';
 import { EmployeeModule } from './employee/employee.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -15,6 +16,15 @@ import { EmployeeModule } from './employee/employee.module';
     }),
     PetsModule,
     EmployeeModule,
+    TypeOrmModule.forRoot({
+      type:"postgres",
+      host:'localhost',
+      port:5432,
+      username:'postgres',
+      password:'Alejandro7$.',
+      entities:["dist/**/*.entity{.ts,.js}"],
+      synchronize:true
+    })
   ],
 })
 export class AppModule {}
